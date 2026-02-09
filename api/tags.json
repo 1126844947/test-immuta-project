@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "name": "PII",
+        "description": "Personally Identifiable Information",
+        "type": "sensitive",
+        "createdBy": "admin",
+        "createdAt": "2026-02-09T00:00:00Z",
+        "updatedAt": "2026-02-09T00:00:00Z"
+    },
+    {
+        "id": "2",
+        "name": "Financial",
+        "description": "Financial Information",
+        "type": "sensitive",
+        "createdBy": "admin",
+        "createdAt": "2026-02-09T00:00:00Z",
+        "updatedAt": "2026-02-09T00:00:00Z"
+    },
+    {
+        "id": "3",
+        "name": "Healthcare",
+        "description": "Healthcare Information",
+        "type": "sensitive",
+        "createdBy": "admin",
+        "createdAt": "2026-02-09T00:00:00Z",
+        "updatedAt": "2026-02-09T00:00:00Z"
+    },
+    {
+        "id": "4",
+        "name": "Public",
+        "description": "Public Information",
+        "type": "non-sensitive",
+        "createdBy": "admin",
+        "createdAt": "2026-02-09T00:00:00Z",
+        "updatedAt": "2026-02-09T00:00:00Z"
+    }
+]
