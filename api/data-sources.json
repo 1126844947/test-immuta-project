@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "name": "Customer Database",
+        "description": "Customer information database",
+        "type": "database",
+        "connectionString": "jdbc:postgresql://localhost:5432/customer",
+        "tags": [
+            "1",
+            "2"
+        ],
+        "createdBy": "admin",
+        "createdAt": "2026-02-09T00:00:00Z",
+        "updatedAt": "2026-02-09T00:00:00Z"
+    },
+    {
+        "id": "2",
+        "name": "Sales Transactions",
+        "description": "Sales transaction records",
+        "type": "database",
+        "connectionString": "jdbc:postgresql://localhost:5432/sales",
+        "tags": [
+            "2"
+        ],
+        "createdBy": "admin",
+        "createdAt": "2026-02-09T00:00:00Z",
+        "updatedAt": "2026-02-09T00:00:00Z"
+    },
+    {
+        "id": "3",
+        "name": "Public Website Data",
+        "description": "Public website analytics data",
+        "type": "file",
+        "connectionString": "s3://public-website-data",
+        "tags": [
+            "4"
+        ],
+        "createdBy": "admin",
+        "createdAt": "2026-02-09T00:00:00Z",
+        "updatedAt": "2026-02-09T00:00:00Z"
+    }
+]
