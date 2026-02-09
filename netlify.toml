@@ -1,0 +1,7 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/dataSource"
+  to = "/.netlify/functions/dataSource"
+  status = 200
