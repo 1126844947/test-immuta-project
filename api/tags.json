@@ -1,38 +1,32 @@
-[
-    {
-        "id": "1",
-        "name": "PII",
-        "description": "Personally Identifiable Information",
-        "type": "sensitive",
-        "createdBy": "admin",
-        "createdAt": "2026-02-09T00:00:00Z",
-        "updatedAt": "2026-02-09T00:00:00Z"
-    },
-    {
-        "id": "2",
-        "name": "Financial",
-        "description": "Financial Information",
-        "type": "sensitive",
-        "createdBy": "admin",
-        "createdAt": "2026-02-09T00:00:00Z",
-        "updatedAt": "2026-02-09T00:00:00Z"
-    },
-    {
-        "id": "3",
-        "name": "Healthcare",
-        "description": "Healthcare Information",
-        "type": "sensitive",
-        "createdBy": "admin",
-        "createdAt": "2026-02-09T00:00:00Z",
-        "updatedAt": "2026-02-09T00:00:00Z"
-    },
-    {
-        "id": "4",
-        "name": "Public",
-        "description": "Public Information",
-        "type": "non-sensitive",
-        "createdBy": "admin",
-        "createdAt": "2026-02-09T00:00:00Z",
-        "updatedAt": "2026-02-09T00:00:00Z"
-    }
-]
+{
+  "REST_Catalog_Root": {
+    "id": "1"
+  },
+  "REST_Catalog_Root.PII": {
+    "id": "2"
+  },
+  "REST_Catalog_Root.PII.Email": {
+    "id": "3"
+  },
+  "REST_Catalog_Root.PII.Phone": {
+    "id": "4"
+  },
+  "REST_Catalog_Root.Financial": {
+    "id": "5"
+  },
+  "REST_Catalog_Root.Financial.CreditCard": {
+    "id": "6"
+  },
+  "REST_Catalog_Root.Financial.BankAccount": {
+    "id": "7"
+  },
+  "REST_Catalog_Root.Healthcare": {
+    "id": "8"
+  },
+  "REST_Catalog_Root.Healthcare.MedicalRecord": {
+    "id": "9"
+  },
+  "REST_Catalog_Root.Public": {
+    "id": "10"
+  }
+}
