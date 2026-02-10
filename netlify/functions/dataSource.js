@@ -1,7 +1,14 @@
 exports.handler = async (event) => {
+    // 打印请求信息，以便在Netlify日志中查看Immuta发送的请求
+    console.log('=== Immuta DataSource Request ===');
+    console.log('Request Method:', event.httpMethod);
+    console.log('Request Path:', event.path);
+    console.log('Request Headers:', event.headers);
+    console.log('Request Body:', event.body);
+    console.log('=== End Request Info ===');
+
     // 无论请求方法如何，都返回模拟数据
     const dataSource = {
-        id: "customer_db",
         name: "Customer Database",
         description: "Customer information database with PII data",
         tags: {

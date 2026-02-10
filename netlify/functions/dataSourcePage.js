@@ -1,11 +1,19 @@
 exports.handler = async (event) => {
+  // 打印请求信息，以便在Netlify日志中查看Immuta发送的请求
+  console.log('=== Immuta DataSourcePage Request ===');
+  console.log('Request Method:', event.httpMethod);
+  console.log('Request Path:', event.path);
+  console.log('Request Headers:', event.headers);
+  console.log('Request Body:', event.body);
+  console.log('=== End Request Info ===');
+
   // 从请求路径中提取数据源ID
   const path = event.path;
   const id = path.split('/').pop();
 
   // 返回符合Immuta文档要求的数据源页面数据
   const dataSource = {
-    id: id || "customer_db",
+    // 移除id字段，因为Immuta不允许
     name: "Customer Database",
     description: "Customer information database with PII data",
     tags: {
