@@ -5,6 +5,11 @@ exports.handler = async (event) => {
         name: "Customer Database",
         description: "Customer information database with PII data",
         tags: ["2"],
+        catalogMetadata: {
+            source: "REST_Catalog",
+            lastUpdated: new Date().toISOString(),
+            version: "1.0"
+        },
         schema: {
             database: "customer_db",
             type: "postgresql",
