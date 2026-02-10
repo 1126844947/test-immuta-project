@@ -9,6 +9,14 @@ exports.handler = async (event) => {
     name: "Customer Database",
     description: "Customer information database with PII data",
     tags: ["2"],
+    schema: {
+      database: "customer_db",
+      type: "postgresql",
+      connectionString: "jdbc:postgresql://localhost:5432/customer_db",
+      host: "localhost",
+      port: 5432,
+      username: "immuta_user"
+    },
     columns: [
       {
         name: "id",
