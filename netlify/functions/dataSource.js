@@ -9,26 +9,24 @@ exports.handler = async (event) => {
 
     // 根据Immuta文档构建正确的数据源响应格式
     const dataSource = {
-        // 数据源基本信息
-        name: "Customer Database",
+        catalogMetadata: {
+            id: "1",
+            name: "Customer Database"
+        },
         description: "Customer information database with PII data",
-
-        // 数据源级别的标签（对象格式）
         tags: {
             "REST_Catalog_Root.PII": {
                 id: "2"
             }
         },
-
-        // 列信息
-        columns: [
-            {
-                name: "id",
+        dictionary: {
+            "id": {
+                id: "id",
                 description: "Customer ID",
                 tags: {}
             },
-            {
-                name: "name",
+            "name": {
+                id: "name",
                 description: "Customer name",
                 tags: {
                     "REST_Catalog_Root.PII": {
@@ -36,8 +34,9 @@ exports.handler = async (event) => {
                     }
                 }
             },
+            "email":
             {
-                name: "email",
+                id: "email",
                 description: "Customer email address",
                 tags: {
                     "REST_Catalog_Root.PII.Email": {
@@ -45,8 +44,9 @@ exports.handler = async (event) => {
                     }
                 }
             },
+            "phone":
             {
-                name: "phone",
+                id: "phone",
                 description: "Customer phone number",
                 tags: {
                     "REST_Catalog_Root.PII.Phone": {
@@ -54,8 +54,9 @@ exports.handler = async (event) => {
                     }
                 }
             },
+            "credit_card":
             {
-                name: "credit_card",
+                id: "credit_card",
                 description: "Customer credit card number",
                 tags: {
                     "REST_Catalog_Root.Financial.CreditCard": {
@@ -63,13 +64,6 @@ exports.handler = async (event) => {
                     }
                 }
             }
-        ],
-
-        // 目录元数据
-        catalogMetadata: {
-            source: "REST_Catalog",
-            lastUpdated: new Date().toISOString(),
-            version: "1.0"
         }
     };
 
