@@ -1,0 +1,37 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/tags"
+  to = "/.netlify/functions/tags"
+  status = 200
+
+[[redirects]]
+  from = "/api/tags"
+  to = "/.netlify/functions/tags"
+  status = 200
+
+[[redirects]]
+  from = "/dataSource"
+  to = "/.netlify/functions/dataSource"
+  status = 200
+
+[[redirects]]
+  from = "/api/dataSource"
+  to = "/.netlify/functions/dataSource"
+  status = 200
+
+[[redirects]]
+  from = "/dataSource/page/*"
+  to = "/.netlify/functions/dataSourcePage"
+  status = 200
+
+[[redirects]]
+  from = "/api/dataSource/page/*"
+  to = "/.netlify/functions/dataSourcePage"
+  status = 200
+
+[[redirects]]
+  from = "/health"
+  to = "/.netlify/functions/health"
+  status = 200
