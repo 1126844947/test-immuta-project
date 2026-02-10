@@ -21,12 +21,16 @@ exports.handler = async (event) => {
         },
         dictionary: {
             "id": {
-                id: "id",
+                catalogMetadata: {
+                    id: "id",
+                },
                 description: "Customer ID",
                 tags: {}
             },
             "name": {
-                id: "name",
+                catalogMetadata: {
+                    id: "name",
+                },
                 description: "Customer name",
                 tags: {
                     "REST_Catalog_Root.PII": {
@@ -36,7 +40,9 @@ exports.handler = async (event) => {
             },
             "email":
             {
-                id: "email",
+                catalogMetadata: {
+                    id: "email",
+                },
                 description: "Customer email address",
                 tags: {
                     "REST_Catalog_Root.PII.Email": {
@@ -46,7 +52,9 @@ exports.handler = async (event) => {
             },
             "phone":
             {
-                id: "phone",
+                catalogMetadata: {
+                    id: "phone",
+                },
                 description: "Customer phone number",
                 tags: {
                     "REST_Catalog_Root.PII.Phone": {
@@ -56,7 +64,9 @@ exports.handler = async (event) => {
             },
             "credit_card":
             {
-                id: "credit_card",
+                catalogMetadata: {
+                    id: "credit_card",
+                },
                 description: "Customer credit card number",
                 tags: {
                     "REST_Catalog_Root.Financial.CreditCard": {
