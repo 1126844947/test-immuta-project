@@ -135,7 +135,8 @@
     <section>
         <h2>About the Project</h2>
         <p>This project provides a custom Restful Catalog API for Immuta, allowing users to manage data catalogs, tags,
-            and data sources. It is built using Node.js and Express framework, following RESTful API design principles.
+            and data sources. It is built using Netlify Functions, providing a serverless architecture that is easy to
+            deploy and scale.
         </p>
         <p>The API supports the following features:</p>
         <ul>
@@ -143,7 +144,7 @@
             <li>Manage tags for data classification</li>
             <li>Manage data sources</li>
             <li>Associate tags with data sources</li>
-            <li>Complete CRUD operations for all resources</li>
+            <li>Complete API endpoints for Immuta integration</li>
         </ul>
     </section>
 
@@ -151,34 +152,21 @@
         <h2>Getting Started</h2>
         <h3>Prerequisites</h3>
         <ul>
-            <li>Node.js (v14.0.0 or higher)</li>
-            <li>npm (v6.0.0 or higher)</li>
+            <li>Git</li>
+            <li>A Netlify account (for deployment)</li>
         </ul>
 
-        <h3>Installation</h3>
+        <h3>Deployment</h3>
         <pre><code># Clone the repository
 git clone https://github.com/1126844947/test-immuta-project.git
 
 # Navigate to the project directory
 cd test-immuta-project
 
-# Install dependencies
-npm install
-
-# Start the server
-npm start
-</code></pre>
-
-        <h3>Environment Configuration</h3>
-        <p>The server port can be configured in the <code>.env</code> file:</p>
-        <pre><code># Server Configuration
-PORT=3001
-
-# Environment
-NODE_ENV=development
-
-# CORS Configuration
-CORS_ORIGIN=*
+# Deploy to Netlify
+# 1. Sign up for a Netlify account at https://www.netlify.com/
+# 2. Connect your GitHub repository to Netlify
+# 3. Netlify will automatically deploy the site
 </code></pre>
     </section>
 
@@ -194,126 +182,83 @@ CORS_ORIGIN=*
             </li>
         </ul>
 
-        <h3>Catalog API</h3>
-        <ul>
-            <li>
-                <span class="method get">GET</span>
-                <span class="endpoint">/api/catalog</span>
-                <p>Returns all data catalogs</p>
-            </li>
-            <li>
-                <span class="method get">GET</span>
-                <span class="endpoint">/api/catalog/:id</span>
-                <p>Returns a single data catalog by ID</p>
-            </li>
-            <li>
-                <span class="method post">POST</span>
-                <span class="endpoint">/api/catalog</span>
-                <p>Creates a new data catalog</p>
-            </li>
-            <li>
-                <span class="method put">PUT</span>
-                <span class="endpoint">/api/catalog/:id</span>
-                <p>Updates an existing data catalog</p>
-            </li>
-            <li>
-                <span class="method delete">DELETE</span>
-                <span class="endpoint">/api/catalog/:id</span>
-                <p>Deletes a data catalog</p>
-            </li>
-        </ul>
-        
         <h3>Tag API</h3>
         <ul>
+            <li>
+                <span class="method get">GET</span>
+                <span class="endpoint">/tags</span>
+                <p>Returns all tags</p>
+            </li>
             <li>
                 <span class="method get">GET</span>
                 <span class="endpoint">/api/tags</span>
                 <p>Returns all tags</p>
             </li>
-            <li>
-                <span class="method get">GET</span>
-                <span class="endpoint">/api/tags/:id</span>
-                <p>Returns a single tag by ID</p>
-            </li>
-            <li>
-                <span class="method post">POST</span>
-                <span class="endpoint">/api/tags</span>
-                <p>Creates a new tag</p>
-            </li>
-            <li>
-                <span class="method put">PUT</span>
-                <span class="endpoint">/api/tags/:id</span>
-                <p>Updates an existing tag</p>
-            </li>
-            <li>
-                <span class="method delete">DELETE</span>
-                <span class="endpoint">/api/tags/:id</span>
-                <p>Deletes a tag</p>
-            </li>
         </ul>
-        
+
         <h3>DataSource API</h3>
         <ul>
             <li>
-                <span class="method get">GET</span>
-                <span class="endpoint">/api/data-sources</span>
-                <p>Returns all data sources</p>
-            </li>
-            <li>
-                <span class="method get">GET</span>
-                <span class="endpoint">/api/data-sources/:id</span>
-                <p>Returns a single data source by ID</p>
+                <span class="method post">POST</span>
+                <span class="endpoint">/dataSource</span>
+                <p>Returns data source metadata</p>
             </li>
             <li>
                 <span class="method post">POST</span>
-                <span class="endpoint">/api/data-sources</span>
-                <p>Creates a new data source</p>
+                <span class="endpoint">/api/dataSource</span>
+                <p>Returns data source metadata</p>
             </li>
             <li>
-                <span class="method put">PUT</span>
-                <span class="endpoint">/api/data-sources/:id</span>
-                <p>Updates an existing data source</p>
+                <span class="method get">GET</span>
+                <span class="endpoint">/dataSource/page/{id}</span>
+                <p>Returns data source page metadata</p>
             </li>
             <li>
-                <span class="method delete">DELETE</span>
-                <span class="endpoint">/api/data-sources/:id</span>
-                <p>Deletes a data source</p>
-            </li>
-            <li>
-                <span class="method post">POST</span>
-                <span class="endpoint">/api/data-sources/:id/tags</span>
-                <p>Adds a tag to a data source</p>
-            </li>
-            <li>
-                <span class="method delete">DELETE</span>
-                <span class="endpoint">/api/data-sources/:id/tags/:tagId</span>
-                <p>Removes a tag from a data source</p>
+                <span class="method get">GET</span>
+                <span class="endpoint">/api/dataSource/page/{id}</span>
+                <p>Returns data source page metadata</p>
             </li>
         </ul>
     </section>
 
     <section>
         <h2>Testing</h2>
-        <p>To run the tests, use the following command:</p>
-        <pre><code>npm test</code></pre>
-        <p>The test suite includes tests for all API endpoints, ensuring they work as expected.</p>
+        <p>To test the API endpoints, use the following commands:</p>
+        <pre><code># Test health check
+curl https://your-site.netlify.app/health
+
+# Test tags endpoint
+curl https://your-site.netlify.app/tags
+
+# Test dataSource endpoint
+curl -X POST https://your-site.netlify.app/dataSource
+
+# Test dataSource page endpoint
+curl https://your-site.netlify.app/dataSource/page/customer_db
+</code></pre>
     </section>
 
     <section>
         <h2>Deployment</h2>
-        <h3>Using ngrok for Public Access</h3>
-        <p>To make the API publicly accessible, you can use ngrok:</p>
-        <pre><code># Install ngrok globally
-npm install -g ngrok
-
-# Start ngrok on the port your server is running
-ngrok http 3001
+        <h3>Using Netlify</h3>
+        <p>This project is deployed using Netlify Functions, which provides a serverless architecture:</p>
+        <ul>
+            <li><strong>Serverless</strong>: No need to manage servers</li>
+            <li><strong>Auto-scaling</strong>: Automatically scales with traffic</li>
+            <li><strong>Continuous deployment</strong>: Automatically deploys when you push to GitHub</li>
+        </ul>
+        <p>To deploy your own instance:</p>
+        <pre><code>1. Fork the repository on GitHub
+2. Sign up for a Netlify account
+3. Connect your forked repository to Netlify
+4. Netlify will automatically deploy the site
+5. Get your site URL from Netlify dashboard
 </code></pre>
-        <p>ngrok will provide a public URL that you can use to access your API from anywhere.</p>
     </section>
 
     <footer>
         <p>&copy; 2026 Immuta Custom Restful Catalog API. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
