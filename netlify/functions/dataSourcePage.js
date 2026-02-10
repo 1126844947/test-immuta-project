@@ -11,31 +11,20 @@ exports.handler = async (event) => {
   const path = event.path;
   const id = path.split('/').pop();
 
-  // 返回符合Immuta文档要求的数据源页面数据
+  // 根据Immuta文档构建正确的数据源页面响应格式
   const dataSource = {
-    // 移除id字段，因为Immuta不允许
+    // 数据源基本信息
     name: "Customer Database",
     description: "Customer information database with PII data",
+
+    // 数据源级别的标签（对象格式）
     tags: {
-      "2": {
-        id: "2",
-        name: "REST_Catalog_Root.PII",
-        description: "Personally Identifiable Information"
+      "REST_Catalog_Root.PII": {
+        id: "2"
       }
     },
-    catalogMetadata: {
-      source: "REST_Catalog",
-      lastUpdated: new Date().toISOString(),
-      version: "1.0"
-    },
-    schema: {
-      database: "customer_db",
-      type: "postgresql",
-      connectionString: "jdbc:postgresql://localhost:5432/customer_db",
-      host: "localhost",
-      port: 5432,
-      username: "immuta_user"
-    },
+
+    // 列信息
     columns: [
       {
         name: "id",
@@ -46,10 +35,8 @@ exports.handler = async (event) => {
         name: "name",
         description: "Customer name",
         tags: {
-          "2": {
-            id: "2",
-            name: "REST_Catalog_Root.PII",
-            description: "Personally Identifiable Information"
+          "REST_Catalog_Root.PII": {
+            id: "2"
           }
         }
       },
@@ -57,10 +44,8 @@ exports.handler = async (event) => {
         name: "email",
         description: "Customer email address",
         tags: {
-          "3": {
-            id: "3",
-            name: "REST_Catalog_Root.PII.Email",
-            description: "Email Address"
+          "REST_Catalog_Root.PII.Email": {
+            id: "3"
           }
         }
       },
@@ -68,10 +53,8 @@ exports.handler = async (event) => {
         name: "phone",
         description: "Customer phone number",
         tags: {
-          "4": {
-            id: "4",
-            name: "REST_Catalog_Root.PII.Phone",
-            description: "Phone Number"
+          "REST_Catalog_Root.PII.Phone": {
+            id: "4"
           }
         }
       },
@@ -79,14 +62,21 @@ exports.handler = async (event) => {
         name: "credit_card",
         description: "Customer credit card number",
         tags: {
-          "6": {
-            id: "6",
-            name: "REST_Catalog_Root.Financial.CreditCard",
-            description: "Credit Card Number"
+          "REST_Catalog_Root.Financial.CreditCard": {
+            id: "6"
           }
         }
       }
     ],
+
+    // 目录元数据
+    catalogMetadata: {
+      source: "REST_Catalog",
+      lastUpdated: new Date().toISOString(),
+      version: "1.0"
+    },
+
+    // 分页信息
     page: {
       total: 1,
       size: 1,
