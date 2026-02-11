@@ -14,73 +14,85 @@ exports.handler = async (event) => {
   // 根据Immuta文档构建正确的数据源页面响应格式
   const dataSource = {
     // 数据源基本信息
-    name: "Customer Database",
-    description: "Customer information database with PII data",
+    "name": "Customer Database",
+    "description": "Customer information database with PII data",
 
-    // 数据源级别的标签（对象格式）
-    tags: {
+    // 数据源级别的标签（对象格式，完全符合文档要求）
+    "tags": {
+      "REST_Catalog_Root": {
+        "id": "1"
+      },
       "REST_Catalog_Root.PII": {
-        id: "2"
+        "id": "2"
       }
     },
 
     // 列信息
-    columns: [
+    "columns": [
       {
-        name: "id",
-        description: "Customer ID",
-        tags: {}
+        "name": "id",
+        "description": "Customer ID",
+        "tags": {}
       },
       {
-        name: "name",
-        description: "Customer name",
-        tags: {
+        "name": "name",
+        "description": "Customer name",
+        "tags": {
           "REST_Catalog_Root.PII": {
-            id: "2"
+            "id": "2"
           }
         }
       },
       {
-        name: "email",
-        description: "Customer email address",
-        tags: {
+        "name": "email",
+        "description": "Customer email address",
+        "tags": {
+          "REST_Catalog_Root.PII": {
+            "id": "2"
+          },
           "REST_Catalog_Root.PII.Email": {
-            id: "3"
+            "id": "3"
           }
         }
       },
       {
-        name: "phone",
-        description: "Customer phone number",
-        tags: {
+        "name": "phone",
+        "description": "Customer phone number",
+        "tags": {
+          "REST_Catalog_Root.PII": {
+            "id": "2"
+          },
           "REST_Catalog_Root.PII.Phone": {
-            id: "4"
+            "id": "4"
           }
         }
       },
       {
-        name: "credit_card",
-        description: "Customer credit card number",
-        tags: {
+        "name": "credit_card",
+        "description": "Customer credit card number",
+        "tags": {
+          "REST_Catalog_Root.Financial": {
+            "id": "5"
+          },
           "REST_Catalog_Root.Financial.CreditCard": {
-            id: "6"
+            "id": "6"
           }
         }
       }
     ],
 
     // 目录元数据
-    catalogMetadata: {
-      source: "REST_Catalog",
-      lastUpdated: new Date().toISOString(),
-      version: "1.0"
+    "catalogMetadata": {
+      "source": "REST_Catalog",
+      "lastUpdated": new Date().toISOString(),
+      "version": "1.0"
     },
 
     // 分页信息
-    page: {
-      total: 1,
-      size: 1,
-      number: 0
+    "page": {
+      "total": 1,
+      "size": 1,
+      "number": 0
     }
   };
 
