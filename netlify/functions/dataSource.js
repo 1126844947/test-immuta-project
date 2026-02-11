@@ -4,7 +4,15 @@ exports.handler = async (event) => {
     console.log('Request Method:', event.httpMethod);
     console.log('Request Path:', event.path);
     console.log('Request Headers:', event.headers);
-    console.log('Request Body:', event.body);
+    // 如果 event.body 是 JSON 字符串，先尝试解析；否则直接读取 catalogMetadata
+    let catalogMetadata;
+    try {
+        const parsed = typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
+        catalogMetadata = parsed.catalogMetadata;
+    } catch (e) {
+        catalogMetadata = undefined;
+    }
+    console.log('Request Body catalogMetadata:', catalogMetadata);
     console.log('=== End Request Info ===');
 
     // 根据Immuta文档构建正确的数据源响应格式
@@ -77,11 +85,23 @@ exports.handler = async (event) => {
         }
     };
 
+    if (catalogMetadata?.id === dataSource.catalogMetadata.id) {
+        return {
+            statusCode: 200,
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dataSource)
+        };
+    }
+
+    const errorMessage = `DataSource not found: ${JSON.stringify(event.body)}`;
+
     return {
-        statusCode: 200,
+        statusCode: 500,
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(dataSource)
+        body: errorMessage
     };
 };
