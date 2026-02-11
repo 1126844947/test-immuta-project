@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSource Page - Immuta REST Catalog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .card {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background-color: #3498db;
+            color: white;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .pagination {
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>DataSource Page</h1>
+                <p>Immuta REST Catalog - Data Source Metadata</p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Data Source Information</h2>
+                        <div class="form-group">
+                            <label><strong>Name:</strong></label>
+                            <p id="dataSourceName">Customer Database</p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Description:</strong></label>
+                            <p id="dataSourceDescription">Customer information database with PII data</p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Tags:</strong></label>
+                            <div id="dataSourceTags">
+                                <span class="tag">REST_Catalog_Root</span>
+                                <span class="tag">REST_Catalog_Root.PII</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Last Updated:</strong></label>
+                            <p id="lastUpdated"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Catalog Metadata</h2>
+                        <div class="form-group">
+                            <label><strong>Source:</strong></label>
+                            <p>REST_Catalog</p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Version:</strong></label>
+                            <p>1.0</p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>API Endpoints:</strong></label>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <strong>GET</strong> /api/tags - Get all tags
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>POST</strong> /api/dataSource - Get data source metadata
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>GET</strong> /api/dataSource/page/{id} - Get data source page metadata
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="mt-4">Columns</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Tags</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>id</td>
+                            <td>Customer ID</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>name</td>
+                            <td>Customer name</td>
+                            <td>
+                                <span class="tag">REST_Catalog_Root.PII</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td>Customer email address</td>
+                            <td>
+                                <span class="tag">REST_Catalog_Root.PII</span>
+                                <span class="tag">REST_Catalog_Root.PII.Email</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>phone</td>
+                            <td>Customer phone number</td>
+                            <td>
+                                <span class="tag">REST_Catalog_Root.PII</span>
+                                <span class="tag">REST_Catalog_Root.PII.Phone</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>credit_card</td>
+                            <td>Customer credit card number</td>
+                            <td>
+                                <span class="tag">REST_Catalog_Root.Financial</span>
+                                <span class="tag">REST_Catalog_Root.Financial.CreditCard</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h2 class="mt-4">Pagination</h2>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="text-center">Page 1 of 1 (Total: 1)</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        document.getElementById('lastUpdated').textContent = new Date().toISOString();
+
+        // Get data source ID from URL
+        const path = window.location.pathname;
+        const id = path.split('/').pop();
+        
+        if (id && id !== 'index.html') {
+            document.getElementById('dataSourceName').textContent += ` (ID: ${id})`;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
