@@ -32,6 +32,16 @@
   status = 200
 
 [[redirects]]
+  from = "/dataSource/page"
+  to = "/api/dataSource/page/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/dataSource/page"
+  to = "/api/dataSource/page/index.html"
+  status = 200
+
+[[redirects]]
   from = "/health"
   to = "/.netlify/functions/health"
   status = 200
