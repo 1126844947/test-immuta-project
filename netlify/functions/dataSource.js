@@ -10,21 +10,21 @@ exports.handler = async (event) => {
     // 根据Immuta文档构建正确的数据源响应格式
     const dataSource = {
         catalogMetadata: {
-            id: "1",
-            name: "Customer Database"
+            id: "PLAYER_DATA_ZQ",
+            name: "\"snk\".\"SANDBOX\".\"SOU_PRIVATE\".\"PLAYER_DATA_ZQ\""
         },
-        description: "Customer information database with PII data",
+        description: "zq created for testing",
         tags: {
             "REST_Catalog_Root.PII": {
                 id: "2"
             }
         },
         dictionary: {
-            "id": {
+            "PLAYER_ID": {
                 catalogMetadata: {
-                    id: "id",
+                    id: "PLAYER_ID",
                 },
-                description: "Customer ID",
+                description: "PLAYER ID",
                 tags: {}
             },
             "name": {
