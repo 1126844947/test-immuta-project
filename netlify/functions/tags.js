@@ -22,12 +22,6 @@ exports.handler = async (event) => {
     "REST_Catalog_Root.Financial.BankAccount": {
       "id": "7"
     },
-    "REST_Catalog_Root.Healthcare": {
-      "id": "8"
-    },
-    "REST_Catalog_Root.Healthcare.MedicalRecord": {
-      "id": "9"
-    },
     "REST_Catalog_Root.Public": {
       "id": "10"
     }
